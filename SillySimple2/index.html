@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,25 +8,31 @@
 </head>
 <body>
 
-<div data-role="page" id="pageone">
+<div data-role="page">
   <div data-role="header">
-    <h1>Welcome To My Homepage</h1>
-    <div data-role="navbar" data-iconpos="top">
-      <ul>
-        <li><a href="#" data-icon="home">Choose Area</a></li>
-        <li><a href="#" data-icon="camera">Camera</a></li>
-        <li><a href="#" data-icon="grid">Gallery</a></li>
-      </ul>
-    </div>
+    <h1>Welcome To Blind Designs</h1>
   </div>
 
   <div data-role="main" class="ui-content">
-    <p>An example of icon positioning in a navigation bar inside the header.</p>
-    <p>The data-iconpos="top" will position the icons above the text. <b>Note:</b> This is default.</p>
+    <h2>Popup List</h2>
+    <a href="#myPopup" data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all ui-icon-gear ui-btn-icon-left">Nain Menu</a>
+
+    <div data-role="popup" id="myPopup">
+      <ul data-role="listview" data-inset="true" style="min-width:250px;">
+        <li><a href="main_menu.html">Visualizer</li>
+        <li><a href="#">Gallery</a></li>
+        <li><a href="#">Safety</a></li>
+        <li data-role="list-divider">Technical Info</li>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="#">About</a></li>
+        <li data-role="list-divider">Find Distributor</li>
+       
+    </ul>
+    </div>
   </div>
 
   <div data-role="footer">
-    <h1>My Footer</h1>
+    <h1>Footer Text</h1>
   </div>
 </div> 
 
