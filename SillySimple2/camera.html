@@ -1,15 +1,54 @@
 
 <!DOCTYPE html>
-<html lang="en">
-	<head>
-		  <meta charset="utf-8">
-		  <title>HTML5 Demo: getUserMedia (Treehouse Blog)</title>
-		  <link rel="stylesheet" href="css/style.css">
-	</head>
-	<body>
-		  <div id="video-container">
-			<video id="camera-stream" width="500" autoplay></video>
-		  </div>
-		  <script src="js/script.js"></script>
-	</body>
+<html>
+  <head>
+    <title>Example 11-2</title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" id="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;" />
+    <script type="text/javascript" charset="utf-8" src=" Phonegap/Cordova.js"></script>
+	
+    <script type="text/javascript" charset="utf-8">
+	
+     function TakePhotoUsingCamera() {
+		TakePhoto(Camera.PictureSourceType.CAMERA); 
+		};
+ 
+		// It will take photo from existing library/gallery.
+		function TakePhotoFromLibrary() {
+		TakePhoto(Camera.PictureSourceType.PHOTOLIBRARY);
+		};
+		
+		function TakePhoto(sourceType) {
+			var camOptions = {
+			quality:50,
+			destinationType: Camera.DestinationType.DATA_URL,
+			sourceType: sourceType,
+			correctOrientation: true
+			};
+			navigator.camera.getPicture(OnSuccess, OnFailure, camOptions);
+			}
+			
+			function OnSuccess(imageData) {
+				navigator.notification.alert("Image taken successfully.");
+				var imageSource = "data:image/jpeg;base64," + imageData;
+				$('.previewImage ').attr('src', imageSource);
+				}
+			function OnFailure(message) {
+				navigator.notification.alert("Failed because: " + message);
+				}
+    </script>
+	
+  </head>
+  <body onload="onBodyLoad()">
+    <h1>Camera Panel</h1>
+    <p>
+      <br />
+			<button onclick="TakePhotoUsingCamera();">Take Photo Using Camera</button>
+ 
+			<button onclick="TakePhotoFromLibrary();">Take Photo From Library</button>
+
+      <div id="imageContainer"></div>
+		<img style=”width:100px; height:100px;” />
+    </p>
+  </body>
 </html>
