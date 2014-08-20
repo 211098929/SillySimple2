@@ -1,52 +1,126 @@
-
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>imageflip Example</title>
-<link rel="stylesheet" href="gridscrolling.css" />
-<script src="gridscrolling.js"></script>
-<script src="js/imageflip.mini.js"></script>
-<style type="text/css">
-#iGallery		{list-style:none; padding:0px; margin:0px}
-#iGallery li	{list-style:none; padding:2px; margin:2px; border:1px solid #999; float:left}
-
-/* imageflip CSS. Copy & Paste this to your CSS file */
-#imageflippage	{background-color:#000; margin:0px; padding:0px; border:none; height:100%; width:100%}
-#tadcontent		{padding:0px; margin:0px; position:relative; background:#000; height:100%; width:100%;}
-#imageflipimg	{vertical-align:middle; height:100%; width:100%; z-index:98; background-position:center; background-size:contain; text-align:center; background-repeat:no-repeat }
-#imagefliper	{width:100%; top:45px; bottom:0px; position:absolute; z-index:99}
-#tadnavi		{position:fixed; top:0px; z-index:100; width:100%; opacity:0.7; display:none }
-#tadinfo		{position:fixed; display:none; bottom:0px; width:100%; padding:5px; background-color:#333333; opacity:0.7; color:#FFFFFF; text-align:center; font-size:small; font-family:Verdana, Geneva, sans-serif}
-
-</style>
-<script type="text/javascript">
-$( document ).delegate("#home", "pageinit", function() {
-	$('#iGallery').imageflip()
-})
-</script>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title>SwipeView</title>
+	<link href="style.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript" src="swipeview.js"></script>
 </head>
+
 <body>
+	<div id="wrapper"></div>
+	<ul id="nav">
+		<li id="prev" onclick="gallery.prev()">-</li>
+		<li class="selected" onclick="gallery.goToPage(0)"></li>
+		<li onclick="gallery.goToPage(1)"></li>
+		<li onclick="gallery.goToPage(2)"></li>
+		<li onclick="gallery.goToPage(3)"></li>
+		<li onclick="gallery.goToPage(4)"></li>
+		<li onclick="gallery.goToPage(5)"></li>
+		<li id="next" onclick="gallery.next()">+</li>
+	</ul>
+	
+<script type="text/javascript">
+document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
 
-<div data-role="page" id="home" data-theme="d" data-title="imageFlip Demo">
-	<div data-role="header" data-theme="d" id="header"><h1>Example</h1></div>
-	<div data-role="content" id="content">
-		<div class="content-primary">	
-		<ul id="iGallery">
-			<li><a href="images/4f7d341e82ba1.jpg"><img src="images/_4f7d341e82ba1.jpg" /></a></li>
-			<li><a title="Add Image discription to Title Attribe of A tag to display in here" href="images/4f7d363cb2236.jpg"><img src="images/_4f7d363cb2236.jpg" /></a></li>
-			<li><a href="images/4f7d386046e12.jpg"><img src="images/_4f7d386046e12.jpg" /></a></li>
-			<li><a href="images/4f506f7a8ef30.jpg"><img src="images/_4f506f7a8ef30.jpg" /></a></li>
-			<li><a href="images/4f975e2862141.jpg"><img src="images/_4f975e2862141.jpg" /></a></li>
-			<li><a href="images/4f85120f97815.jpg"><img src="images/_4f85120f97815.jpg" /></a></li>
-			<li><a href="images/4f85134ae2c05.jpg"><img src="images/_4f85134ae2c05.jpg" /></a></li>
-			<li><a href="images/4f828774366b1.jpg"><img src="images/_4f828774366b1.jpg" /></a></li>
-			<li><a href="images/4fce4e99213b5.jpg"><img src="images/_4fce4e99213b5.jpg" /></a></li>
-		</ul>
-		</div>
-	</div>
-</div>
+var	gallery,
+	el,
+	i,
+	page,
+	dots = document.querySelectorAll('#nav li'),
+	slides = [
+		{
+			img: 'images/pic01.jpg',
+			width: 300,
+			height: 213,
+			desc: 'Piazza del Duomo, Florence, Italy'
+		},
+		{
+			img: 'images/pic02.jpg',
+			width: 300,
+			height: 164,
+			desc: 'Tuscan Landscape'
+		},
+		{
+			img: 'images/pic03.jpg',
+			width: 300,
+			height: 213,
+			desc: 'Colosseo, Rome, Italy'
+		},
+		{
+			img: 'images/pic04.jpg',
+			width: 147,
+			height: 220,
+			desc: 'Somewhere near Chinatown, San Francisco'
+		},
+		{
+			img: 'images/pic05.jpg',
+			width: 300,
+			height: 213,
+			desc: 'Medieval guard tower, Asciano, Siena, Italy'
+		},
+		{
+			img: 'images/pic06.jpg',
+			width: 165,
+			height: 220,
+			desc: 'Leaning tower, Pisa, Italy'
+		}
+	];
 
+gallery = new SwipeView('#wrapper', { numberOfPages: slides.length });
+
+// Load initial data
+for (i=0; i<3; i++) {
+	page = i==0 ? slides.length-1 : i-1;
+	el = document.createElement('img');
+	el.className = 'loading';
+	el.src = slides[page].img;
+	el.width = slides[page].width;
+	el.height = slides[page].height;
+	el.onload = function () { this.className = ''; }
+	gallery.masterPages[i].appendChild(el);
+
+	el = document.createElement('span');
+	el.innerHTML = slides[page].desc;
+	gallery.masterPages[i].appendChild(el)
+}
+
+gallery.onFlip(function () {
+	var el,
+		upcoming,
+		i;
+
+	for (i=0; i<3; i++) {
+		upcoming = gallery.masterPages[i].dataset.upcomingPageIndex;
+
+		if (upcoming != gallery.masterPages[i].dataset.pageIndex) {
+			el = gallery.masterPages[i].querySelector('img');
+			el.className = 'loading';
+			el.src = slides[upcoming].img;
+			el.width = slides[upcoming].width;
+			el.height = slides[upcoming].height;
+			
+			el = gallery.masterPages[i].querySelector('span');
+			el.innerHTML = slides[upcoming].desc;
+		}
+	}
+	
+	document.querySelector('#nav .selected').className = '';
+	dots[gallery.pageIndex+1].className = 'selected';
+});
+
+gallery.onMoveOut(function () {
+	gallery.masterPages[gallery.currentMasterPage].className = gallery.masterPages[gallery.currentMasterPage].className.replace(/(^|\s)swipeview-active(\s|$)/, '');
+});
+
+gallery.onMoveIn(function () {
+	var className = gallery.masterPages[gallery.currentMasterPage].className;
+	/(^|\s)swipeview-active(\s|$)/.test(className) || (gallery.masterPages[gallery.currentMasterPage].className = !className ? 'swipeview-active' : className + ' swipeview-active');
+});
+
+</script>
 </body>
 </html>
