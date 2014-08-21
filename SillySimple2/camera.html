@@ -1,54 +1,53 @@
-
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Example 11-2</title>
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
-    <meta name="viewport" id="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;" />
-    <script type="text/javascript" charset="utf-8" src=" Phonegap/Cordova.js"></script>
-	
-    <script type="text/javascript" charset="utf-8">
-	
-     function TakePhotoUsingCamera() {
-		TakePhoto(Camera.PictureSourceType.CAMERA); 
-		};
- 
-		// It will take photo from existing library/gallery.
-		function TakePhotoFromLibrary() {
-		TakePhoto(Camera.PictureSourceType.PHOTOLIBRARY);
-		};
-		
-		function TakePhoto(sourceType) {
-			var camOptions = {
-			quality:50,
-			destinationType: Camera.DestinationType.DATA_URL,
-			sourceType: sourceType,
-			correctOrientation: true
-			};
-			navigator.camera.getPicture(OnSuccess, OnFailure, camOptions);
-			}
-			
-			function OnSuccess(imageData) {
-				navigator.notification.alert("Image taken successfully.");
-				var imageSource = "data:image/jpeg;base64," + imageData;
-				$('.previewImage ').attr('src', imageSource);
-				}
-			function OnFailure(message) {
-				navigator.notification.alert("Failed because: " + message);
-				}
-    </script>
-	
-  </head>
-  <body onload="onBodyLoad()">
-    <h1>Camera Panel</h1>
-    <p>
-      <br />
-			<button onclick="TakePhotoUsingCamera();">Take Photo Using Camera</button>
- 
-			<button onclick="TakePhotoFromLibrary();">Take Photo From Library</button>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="style/jquery.mobile-1.4.2.min.css">
+	<link rel="stylesheet" href="style.css">
+	<script src="js/jquery-1.10.2.min.js"></script>
+	<script src="js/jquery.mobile-1.4.2.min.js"></script>
+</head>
+<body>
 
-      <div id="imageContainer"></div>
-		<img style=”width:100px; height:100px;” />
-    </p>
-  </body>
+<div data-role="page" id="pageone">
+  <div data-role="header">
+    <h1>Visualizer Screen</h1>
+    <div data-role="navbar">
+      <ul>
+        <li><a href="area.html" data-icon="home">Choose Area</a></li>
+        <li><a href="#" data-icon="camera" class="ui-btn-active">Camera</a></li>
+        <li><a href="viewBlinds.html" data-icon="grid">View Blinds</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div data-role="main" class="ui-content">
+    <header><h3>Camera</h3></header>
+  </div>
+		<div id="video-container">
+			<video id="camera-stream" width="500" autoplay></video>
+		</div>
+		<script src="script.js"></script>
+  <div data-role="footer">
+    <h1>My Footer</h1>
+  </div>
+</div> 
+
+</body>
 </html>
+
+
+<!--
+<html lang="en">
+	<head>
+		  <meta charset="utf-8">
+		  <title>HTML5 Demo: getUserMedia (Treehouse Blog)</title>
+		  <link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		  <div id="video-container">
+			<video id="camera-stream" width="500" autoplay></video>
+		  </div>
+		  <script src="script.js"></script>
+	</body>
+</html>-->

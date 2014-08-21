@@ -1,40 +1,75 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css">
-<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-<script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="style/jquery.mobile-1.4.2.min.css">
+	<style type="text/css">
+		.slider{
+			width:300px;
+			height:300px;
+			overflow:hidden;
+			margin:30px auto;
+		}
+		.shadow{
+			background-image:url(img/wideshadow.png);
+			background-repeat:no-repeat;
+			background-position:top;
+			width:300px;
+			height:100px;
+			margin:-60px auto;
+		}
+		.slider img{
+			width:300px;
+			height:300px;
+			display:none;
+		}
+	</style>
+	<script src="js/jquery-1.10.2.min.js"></script>
+	<script src="js/jquery.mobile-1.4.2.min.js"></script>
+	<script src="js/jquery.js"></script>
+	<script src="js/slider.js"></script>
 </head>
 <body>
 
 <div data-role="page">
   <div data-role="header">
-    <h1>Welcome To Blind Designs</h1>
+    <h1>Blind Designs</h1>
   </div>
 
   <div data-role="main" class="ui-content">
-    <h2>Popup List</h2>
-    <a href="#myPopup" data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all ui-icon-gear ui-btn-icon-left">Main Menu</a>
+    <!--<h2>Popup List</h2>-->
+    <a href="#myPopup" data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all ui-icon-bars ui-btn-icon-left">Main Menu</a>
 
-    <div data-role="popup" id="myPopup">
-      <ul data-role="listview" data-inset="false" style="min-width:250px;">
-        <li><a href="nav.html">Visualizer</li>
+    <div data-role="popup" id="myPopup" class="myPopup">
+      <ul data-role="listview" data-inset="true" style="min-width:250px;">
+        <li data-role="list-divider">Select Item</li>
+        <li><a href="area.html">Visualizer</a></li>
         <li><a href="#">Gallery</a></li>
         <li><a href="#">Safety</a></li>
-        <li><a href="#">Technical Info</li>
         <li><a href="#">Contact Us</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Find Distributor</li>
-       
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Find a Distributor</a></li>
     </ul>
     </div>
   </div>
-
-  <div data-role="footer">
-    <h1>Footer Text</h1>
-  </div>
+	
+	<div class="slider" id="slider">
+		<img id="1" src="img/bamboo150valance.jpg">
+		<img id="2" src="img/bambooblindhalfroundvalance.jpg">
+		<img id="3" src="img/basswood.jpg">
+		<img id="4" src="img/basswoodblind.jpg">
+		<img id="5" src="img/basswoodhalfroundvalance.jpg">
+		<img id="6" src="img/basswoodregency.jpg">
+		<img id="7" src="img/basswoodtradional.jpg">
+		<img id="8" src="img/basswood-traditional-valance.jpg">
+		<img id="9" src="img/basswood-venetian.jpg">
+	</div>
+	<div class="shadow"></div><br/><br/><br/>
+	 <div data-role="footer">
+		<h1>Blind Designs</h1>
+	 </div>
 </div> 
+
 
 </body>
 </html>

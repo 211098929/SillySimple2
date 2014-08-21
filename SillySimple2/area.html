@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="style/jquery.mobile-1.4.2.min.css">
+		<script src="js/jquery-1.10.2.min.js"></script>
+		<script src="js/jquery.mobile-1.4.2.min.js"></script>
+		<script src="js/areaslider.js"></script>
+	</head>
+	<body>
+
+		<div data-role="page" id="pageone">
+		  <div data-role="header">
+			<h1>Visualizer Screen</h1>
+			<div data-role="navbar">
+			  <ul>
+				<li><a href="area.html" data-icon="home" class="ui-btn-active">Choose Area</a></li>
+				<li><a href="camera.html" data-icon="camera">Camera</a></li>
+				<li><a href="viewBlinds.html" data-icon="grid">View Blinds</a></li>
+			  </ul>
+			</div>
+		  </div>
+
+		  <div data-role="main" class="ui-content">
+			<header><h3>Room Area</h3></header>
+			<div id="area_image" class="area_image">
+				<div id="main_area" class="main_area">
+					<img id="1" src="img/room2.jpg">
+					<img id="2" src="img/room3.jpg">
+					<img id="3" src="img/room4.jpg">
+					<img id="4" src="img/room2.jpg">
+				</div>
+			</div>
+			<a href="#" class="right" onclick="prev(); return false">Previous</a>
+			<a href="#" class="left" onclick="next(); return false">Next</a>
+			<header><h3>Select A Blind</h3></header>
+			<section id="gal_content">
+				<div class="gallery">
+					<ul>
+						<li><img id="1" src="img/bamboo150valance.jpg"></li>
+						<li><img id="2" src="img/bambooblindhalfroundvalance.jpg"></li>
+						<li><img id="3" src="img/basswood.jpg"></li>
+						<li><img id="4" src="img/basswoodblind.jpg"></li>
+						<li><img id="5" src="img/basswoodhalfroundvalance.jpg"></li>
+						<li><img id="1" src="img/bamboo150valance.jpg"></li>
+						<li><img id="1" src="img/bamboo150valance.jpg"></li>
+						<li><img id="1" src="img/bamboo150valance.jpg"></li>
+						<li><img id="1" src="img/bamboo150valance.jpg"></li>
+					</ul>
+				</div>
+			</section>
+		  </div>
+
+
+		  <div data-role="footer">
+			<h1>Blind Designs</h1>
+		  </div>
+		</div> 
+
+	</body>
+</html>
