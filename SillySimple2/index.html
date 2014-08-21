@@ -6,15 +6,11 @@
 	<style type="text/css">
 		.slider{
 			width:400px;
-			height:300px;
+			height:400px;
 			overflow:hidden;
 			margin:30px auto;
 		}
-		.logo{
-			width:25px;
-			height:10px;
-			
-		}
+		
 		.shadow{
 			<!--background-image:url(img/wideshadow.png);-->
 			background-repeat:no-repeat;
@@ -25,7 +21,7 @@
 		}
 		.slider img{
 			width:400px;
-			height:250px;
+			height:280px;
 			display:none;
 		}
 	</style>
@@ -37,11 +33,11 @@
 <body>
 
 <div data-role="page">
-  <div data-role="header" class="logo" id="logo">
-    <img id="1" src="img/logo.png">
+  <div data-role="header">
+    <img id="1" src="img/logo.png" height="40px">
   </div>
 
-  <div data-role="main" class="ui-content">
+  <div data-role="main" class="ui-content" height="120px">
     <!--<h2>Popup List</h2>-->
     <a href="#myPopup" data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all ui-icon-bars ui-btn-icon-left">Main Menu</a>
 
@@ -67,7 +63,7 @@
 	</div>
 	<!--<div class="shadow"></div><br/><br/><br/>-->
 	 <div data-role="footer" class="logo" id="logo">
-			 <img id="1" src="img/logo.png">
+			 <img id="1" src="img/logo.png" height="100px">
 	 </div>
 </div> 
 
