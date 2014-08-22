@@ -1,129 +1,112 @@
-
 <!DOCTYPE html>
-<html> 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
-    <title>Map</title>
-    
-    <link rel="stylesheet" href="css/jquery.mobile-1.0.1.css" />
-    
-    <script type="text/javascript" src="js/jquery-1.6.4.js"></script>
-    <script type="text/javascript" src="js/jquery.mobile-1.0.1.js"></script>
-    <script type="text/javascript" src="http://www.google.com/jsapi"></script>
-    <script type="text/javascript" src="js/cordova-1.5.0.js"></script>
-    
-<script type="text/javascript">
+<html>
+    <head>
+        <title>jQuery mobile with Google maps geo directions example</title>
+        <meta content="en" http-equiv="content-language">
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+        <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+        <script type="text/javascript" src="http://maps.google.com/maps/api/js?v=3&sensor=false&language=en"></script>
+        <script type="text/javascript">
+            $(document).on("pageinit", "#map_page", function() {
+                initialize();
+            });
 
-var map;
-var marker;
-var infowindow;
-var watchID;
+            $(document).on('click', '#submit', function(e) {
+                e.preventDefault();
+                calculateRoute();
+            });
 
-$(document).ready(function(){
-	document.addEventListener("deviceready", onDeviceReady, false);
-	//for testing in Chrome browser uncomment
-	//onDeviceReady();
-});
+            var directionDisplay,
+                directionsService = new google.maps.DirectionsService(),
+                map;
 
-//PhoneGap is ready function
-function onDeviceReady() {
-	$(window).unbind();
-	$(window).bind('pageshow resize orientationchange', function(e){
-		max_height();
-	});
-	max_height();
-	google.load("maps", "3.8", {"callback": map, other_params: "sensor=true&language=en"});
-}
+            function initialize() 
+            {
+                directionsDisplay = new google.maps.DirectionsRenderer();
+                var mapCenter = new google.maps.LatLng(59.3426606750, 18.0736160278);
 
-function max_height(){
-	var h = $('div[data-role="header"]').outerHeight(true);
-	var f = $('div[data-role="footer"]').outerHeight(true);
-	var w = $(window).height();
-	var c = $('div[data-role="content"]');
-	var c_h = c.height();
-	var c_oh = c.outerHeight(true);
-	var c_new = w - h - f - c_oh + c_h;
-	var total = h + f + c_oh;
-	if(c_h<c.get(0).scrollHeight){
-		c.height(c.get(0).scrollHeight);
-	}else{
-		c.height(c_new);
-	}
-}
-		
-function map(){
-    var latlng = new google.maps.LatLng(55.17, 23.76);
-    var myOptions = {
-      zoom: 6,
-      center: latlng,
-	  streetViewControl: true,
-      mapTypeId: google.maps.MapTypeId.ROADMAP,
-      zoomControl: true
-    };
-    map = new google.maps.Map(document.getElementById("map"), myOptions);
-	
-	google.maps.event.addListenerOnce(map, 'tilesloaded', function(){
-		//get geoposition once
-		//navigator.geolocation.getCurrentPosition(geo_success, geo_error, { maximumAge: 5000, timeout: 5000, enableHighAccuracy: true });
-		//watch for geoposition change
-		watchID = navigator.geolocation.watchPosition(geo_success, geo_error, { maximumAge: 5000, timeout: 5000, enableHighAccuracy: true });   
-	}); 
-}
+                var myOptions = {
+                    zoom:10,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP,
+                    center: mapCenter
+                }
 
-function geo_error(error){
-	//comment
-    alert('code: ' + error.code + '\n' + 'message: ' + error.message + '\n');
-}
+                map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+                directionsDisplay.setMap(map);
+                directionsDisplay.setPanel(document.getElementById("directions"));  
+            }
 
-function geo_success(position) {
-	
-	map.setCenter(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
-	map.setZoom(15);
+            function calculateRoute() 
+            {
+                var selectedMode = $("#mode").val(),
+                    start = $("#from").val(),
+                    end = $("#to").val();
 
-    var info = 
-    ('Latitude: '         + position.coords.latitude          + '<br>' +
-    'Longitude: '         + position.coords.longitude         + '<br>' +
-    'Altitude: '          + position.coords.altitude          + '<br>' +
-    'Accuracy: '          + position.coords.accuracy          + '<br>' +
-    'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '<br>' +
-    'Heading: '           + position.coords.heading           + '<br>' +
-    'Speed: '             + position.coords.speed             + '<br>' +
-    'Timestamp: '         + new Date(position.timestamp));
+                if(start == '' || end == '')
+                {
+                    // cannot calculate route
+                    $("#results").hide();
+                    return;
+                }
+                else
+                {
+                    var request = {
+                        origin:start, 
+                        destination:end,
+                        travelMode: google.maps.DirectionsTravelMode[selectedMode]
+                    };
 
-	var point = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-	if(!marker){
-		//create marker
-		marker = new google.maps.Marker({
-			position: point,
-			map: map
-		});
-	}else{
-		//move marker to new position
-		marker.setPosition(point);
-	}
-	if(!infowindow){
-		infowindow = new google.maps.InfoWindow({
-		    content: info
-		});
-	}else{
-		infowindow.setContent(info);
-	}
-	google.maps.event.addListener(marker, 'click', function() {
-	  infowindow.open(map,marker);
-	}); 
-}
-</script>
+                    directionsService.route(request, function(response, status) {
+                        if (status == google.maps.DirectionsStatus.OK) {
+                            directionsDisplay.setDirections(response); 
+                            $("#results").show();
+                            /*
+                                var myRoute = response.routes[0].legs[0];
+                                for (var i = 0; i < myRoute.steps.length; i++) {
+                                    alert(myRoute.steps[i].instructions);
+                                }
+                            */
+                        }
+                        else {
+                            $("#results").hide();
+                        }
+                    });
 
-</head> 
-<body> 
-
-<div data-role="page" id="index">
-	<div data-role="header" data-theme="b"><h1>Map Header</h1></div>
-	<div data-role="content" style="padding:0;">
-		<div id="map" style="width:100%;height:100%;"></div>
-	</div>
-	<div data-role="footer" data-theme="b"><h4>Map Footer</h4></div>
-</div>
-
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div data-role="page" id="map_page">
+            <div data-role="header">
+                <h1><a href="#">jQuery mobile - Google maps directions service</h1>
+            </div>
+            <div data-role="content">
+                <div class="ui-bar-c ui-corner-all ui-shadow" style="padding:1em;">
+                    <div id="map_canvas" style="height:300px;"></div>
+                    <div data-role="fieldcontain">
+                        <label for="from">From</label> 
+                        <input type="text" id="from" value="Goteborg, Sweden"/>
+                    </div>
+                    <div data-role="fieldcontain">
+                        <label for="to">To</label> 
+                        <input type="text" id="to" value="Stockholm, Sweden"/>
+                    </div>
+                    <div data-role="fieldcontain">
+                        <label for="mode" class="select">Transportation method:</label>
+                        <select name="select-choice-0" id="mode">
+                            <option value="DRIVING">Driving</option>
+                            <option value="WALKING">Walking</option>
+                            <option value="BICYCLING">Bicycling</option>
+                        </select>
+                    </div>
+                    <a data-icon="search" data-role="button" href="#" id="submit">Get directions</a>
+                </div>
+                <div id="results" style="display:none;">
+                    <div id="directions"></div>
+                </div>
+            </div>
+        </div>
+    </body>
 </html>
