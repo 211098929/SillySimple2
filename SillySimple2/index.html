@@ -1,73 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="style/jquery.mobile-1.4.2.min.css">
-		
-	<style type="text/css">
-		.slider{
-			width:300px;
-			height:200px;
-			overflow:hidden;
-			margin: auto;
-		}
-		
-		.shadow{
-			<!--background-image:url(img/wideshadow.png);-->
-			background-repeat:no-repeat;
-			background-position:top;
-			width:400px;
-			height:100px;
-			margin:-60px auto;
-		}
-		.slider img{
-			width:350px;
-			height:200px;
-			display:none;
-		}
-	</style>
-	<script src="js/jquery-1.10.2.min.js"></script>
-	<script src="js/jquery.mobile-1.4.2.min.js"></script>
-	<script src="js/jquery.js"></script>
-	<script src="js/slider.js"></script>
-</head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="http://code.jquery.com/mobile/latest/jquery.mobile.min.css" rel="stylesheet" type="text/css" />
+<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/latest/jquery.mobile.min.js"></script>
+</head> 
 <body>
 
-<div data-role="page">
-  <div data-role="header">
-    <img id="1" src="img/logo.png" height="50px">
+<div id="pageuno" data-role="page" data-theme="b">
+  <div data-role="header" data-theme="b">
+    <h1 id="head" style="margin:.6em 5% .8em;">Navbar data-theme</h1>
   </div>
+    <div data-role="content">
+<div style="padding:50px 0; font-size:20px;">The 1st navbar below has the <code>data-theme</code> attribute set to <code>e</code>. Still it inherits the data-theme from its parent (the content -> page -> b).</div>
+    </div>  
 
-  <div data-role="main" class="ui-content" height="120px">
-    <!--<h2>Popup List</h2>-->
-    <a href="#myPopup" data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all ui-icon-bars ui-btn-icon-left">Main Menu</a>
-
-    <div data-role="popup" id="myPopup" class="myPopup">
-      <ul data-role="listview" data-inset="true" style="min-width:250px;">
-        <li data-role="list-divider">Select Item</li>
-        <li><a href="area.html">Visualizer</a></li>
-        <li><a href="#">Gallery</a></li>
-        <li><a href="#">Safety</a></li>
-        <li><a href="#">Contact Us</a></li>
-        <li><a href="#">About Us</a></li>
-        <li><a href="distributor.html">Find a Distributor</a></li>
-    </ul>
-    </div>
-  </div>
-	
-	<div class="slider" id="slider">
-		<img id="1" src="img/Motorised_banner_1.jpg">
-		<img id="2" src="img/Outdoor_banner_1.jpg">
-		<img id="3" src="img/Sheerweave_banner_1.jpg">
-		<img id="4" src="img/SlidingPanel_banner_1.jpg">
-		<img id="5" src="img/Venice_banner_1.jpg">
-	</div>
-	<!--<div class="shadow"></div><br/><br/><br/>-->
-	 <div data-role="footer" class="logo" id="logo" align="center" class="shadow">
-			  2014 Blind Designs &copy; <href="http://www.thinktank.co.za">ThinkTank</href>
-	 </div>
-</div> 
+        <div data-role="navbar" data-theme="e">
+        <ul>
+            <li><a href="#" id="one" width="auto">one</a></li></br>
+            <li><a href="#" id="two" width="auto">two</a></li></br>
+            <li><a href="#" id="thr" width="auto">three</a></li></br>
+			 <li><a href="#" id="one" width="auto">one</a></li></br>
+            <li><a href="#" id="two" width="auto">two</a></li></br>
+            <li><a href="#" id="thr" width="auto">three</a></li></br>
+        </ul>
+    </div><!-- /navbar -->
 
 
+    </div><!-- /navbar -->
+
+    </div><!-- /footer -->
+</div> <!-- /page -->
 </body>
 </html>
