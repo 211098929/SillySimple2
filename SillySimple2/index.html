@@ -1,71 +1,78 @@
-
 <!DOCTYPE html>
 <html>
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="style/jquery.mobile-1.4.2.min.css">
-		
 	<style type="text/css">
 		.slider{
 			width:300px;
-			height:200px;
+			height:300px;
 			overflow:hidden;
-			margin: auto;
+			margin:30px auto;
 		}
-		
 		.shadow{
-			<!--background-image:url(img/wideshadow.png);-->
+			background-image:url(img/wideshadow.png);
 			background-repeat:no-repeat;
 			background-position:top;
-			width:400px;
+			width:300px;
 			height:100px;
 			margin:-60px auto;
 		}
 		.slider img{
-			width:350px;
-			height:200px;
+			width:300px;
+			height:300px;
 			display:none;
+		}
+		.page{
+			border:2px solid #fff;
 		}
 	</style>
 	<script src="js/jquery-1.10.2.min.js"></script>
 	<script src="js/jquery.mobile-1.4.2.min.js"></script>
 	<script src="js/jquery.js"></script>
+	<script src="js/areaslider.js"></script>
 	<script src="js/slider.js"></script>
+	
 </head>
 <body>
 
-<div data-role="page">
+<div data-role="page" class="page">
   <div data-role="header">
-    <img id="1" src="img/logo.png" height="50px">
+    <h1>Blind Designs</h1><!--<h1><img src="img/logo.png" height="50px"></h1>-->
   </div>
 
-  <div data-role="main" class="ui-content" height="120px">
+  <div data-role="main" class="ui-content">
     <!--<h2>Popup List</h2>-->
     <a href="#myPopup" data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all ui-icon-bars ui-btn-icon-left">Main Menu</a>
 
     <div data-role="popup" id="myPopup" class="myPopup">
       <ul data-role="listview" data-inset="true" style="min-width:250px;">
         <li data-role="list-divider">Select Item</li>
+		<li data-role="list-divider"></li>
         <li><a href="area.html">Visualizer</a></li>
         <li><a href="#">Gallery</a></li>
         <li><a href="#">Safety</a></li>
         <li><a href="#">Contact Us</a></li>
         <li><a href="#">About Us</a></li>
-        <li><a href="distributor.html">Find a Distributor</a></li>
+        <li><a href="#">Find a Distributor</a></li>
     </ul>
     </div>
   </div>
 	
 	<div class="slider" id="slider">
-		<img id="1" src="img/Motorised_banner_1.jpg">
-		<img id="2" src="img/Outdoor_banner_1.jpg">
-		<img id="3" src="img/Sheerweave_banner_1.jpg">
-		<img id="4" src="img/SlidingPanel_banner_1.jpg">
-		<img id="5" src="img/Venice_banner_1.jpg">
+		<img id="1" src="img/bamboo150valance.jpg">
+		<img id="2" src="img/bambooblindhalfroundvalance.jpg">
+		<img id="3" src="img/basswood.jpg">
+		<img id="4" src="img/basswoodblind.jpg">
+		<img id="5" src="img/basswoodhalfroundvalance.jpg">
+		<img id="6" src="img/basswoodregency.jpg">
+		<img id="7" src="img/basswoodtradional.jpg">
+		<img id="8" src="img/basswood-traditional-valance.jpg">
+		<img id="9" src="img/basswood-venetian.jpg">
 	</div>
-	<!--<div class="shadow"></div><br/><br/><br/>-->
-	 <div data-role="footer" class="logo" id="logo" align="center" class="shadow">
-			  2014 Blind Designs &copy; <href="http://www.thinktank.co.za">ThinkTank</href>
+	<div class="shadow"></div><br/><br/><br/>
+	 <div data-role="footer">
+		<h1>Blind Designs</h1>
 	 </div>
 </div> 
 

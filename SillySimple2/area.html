@@ -6,12 +6,104 @@
 		<script src="js/jquery-1.10.2.min.js"></script>
 		<script src="js/jquery.mobile-1.4.2.min.js"></script>
 		<script src="js/areaslider.js"></script>
+		<script src="js/changeblind.js"></script>
+		
+		<script>
+			function message(id)
+			{
+				var roomID = getRoomID();
+				//alert('Room '+roomID);
+				//$("#main_area >img").fadeOut(600);
+				//$("#main_area >img#44").fadeIn(600);
+				
+				
+				
+				if(roomID == 3)
+				{
+					if(id == 4)
+					{
+						$("#main_area >img").fadeOut(5);
+						$("#main_area >img#44").fadeIn(5);
+					}
+				}
+				
+				/*switch(id){
+					case 1:
+						if(roomID == 1){
+							alert('Room '+roomID);
+						}
+						else if(roomID == 2){
+							alert('Room '+roomID);
+						}
+						else if(roomID == 3){
+							alert('Room '+roomID);
+						}
+						else if(roomID == 4){
+							//alert('Room '+roomID);
+							$("#main_area >img").fadeOut(600);
+							$("#main_area >img#44").fadeIn(600);
+						}
+						break;
+					/*case 2:
+						if(roomID == 1){
+							alert('Room '+roomID);
+						}
+						else if(roomID == 2){
+							alert('Room '+roomID);
+						}
+						else if(roomID == 3){
+							alert('Room '+roomID);
+						}
+						else if(roomID == 4){
+							//alert('Room '+roomID);
+								$("#main_area >img").fadeOut(600);
+							$("#main_area >img#44").fadeIn(600);
+						}
+						break;
+					case 3:
+						if(roomID == 1){
+							alert('Room '+roomID);
+						}
+						else if(roomID == 2){
+							alert('Room '+roomID);
+						}
+						else if(roomID == 3){
+							alert('Room '+roomID);
+						}
+						else if(roomID == 4){
+							//alert('Room '+roomID);  
+								$("#main_area >img").fadeOut(600);
+							$("#main_area >img#44").fadeIn(600);
+						}
+						break;
+					case 4:
+						if(roomID == 1){
+							alert('Room '+roomID);
+						}
+						else if(roomID == 2){
+							alert('Room '+roomID);
+						}
+						else if(roomID == 3){
+							alert('Room '+roomID);
+						}
+						else if(roomID == 4){
+							//alert('Room '+roomID);
+							$("#main_area >img").fadeOut(600);
+							$("#main_area >img#44").fadeIn(600);
+						}
+						break;
+					default:
+						alert('Error');
+				}*/
+			}
+		</script>
+		
 	</head>
 	<body>
 
 		<div data-role="page" id="pageone">
 		  <div data-role="header">
-			  <img id="1" src="img/logo.png" height="50px" width="auto">
+			<h1>Visualizer Screen</h1>
 			<div data-role="navbar">
 			  <ul>
 				<li><a href="area.html" data-icon="home" class="ui-btn-active">Choose Area</a></li>
@@ -23,39 +115,75 @@
 
 		  <div data-role="main" class="ui-content">
 			<header><h3>Room Area</h3></header>
+			<style>
+				#menu li:hover ul{
+					display:block;
+				}
+				#menu{
+					display:block;
+					position:relative;
+				}
+				#menu ul{
+					margin:0px;
+					padding:0px;
+				}
+				#menu ul:after{
+					content:".";
+					display:block;
+					height:0px;
+					clear:both;
+					visibility:hidden;
+				}
+				#menu ul ul{
+					position:absolute;
+					left:0px;
+					width:0px;
+					display:none;
+				}
+				#menu li{
+					position:relative;
+					float:left;
+					list-style:none;
+					
+				}
+				#list img:hover{
+					border:2px solid red;
+				}
+				
+			</style>
+			
+			
+			<div id="menu">
+				<ul>
+					<li><a href="#">Blinds</a>
+						<ul id="list">
+							<li><a href="#" onclick="message(1)"><img id="blind" src="img/blind1.jpg" width="100px" height="100px"></a></li>
+							<li><a href="#" onclick="message(2)"><img id="blind" src="img/blind2.jpg" width="100px" height="100px"></a></li>
+							<li><a href="#" onclick="message(3)"><img id="blind" src="img/blind3.jpg" width="100px" height="100px"></a></li>
+							<li><a href="#" onclick="message(4)"><img id="blind" src="img/blind4.jpg" width="100px" height="100px"></a></li>
+						</ul>
+				</ul>
+			</div>
+			
 			<div id="area_image" class="area_image">
 				<div id="main_area" class="main_area">
-					<img id="1" src="img/room2.jpg">
-					<img id="2" src="img/room3.jpg">
-					<img id="3" src="img/room4.jpg">
-					<img id="4" src="img/room2.jpg">
+					<img id="1" src="img/room1.jpg">
+					<img id="2" src="img/room2.jpg">
+					<img id="3" src="img/room3.jpg">
+					<img id="4" src="img/room4.jpg">
+					<img id="44" src="img/roomthree.jpg">
 				</div>
 			</div>
-			<a href="#" class="right" onclick="prev(); return false">Previous</a>
-			<a href="#" class="left" onclick="next(); return false">Next</a>
-			<header><h3>Select A Blind</h3></header>
-			<section id="gal_content">
-				<div class="gallery">
-					<ul>
-						<li><img id="1" src="img/bamboo150valance.jpg"></li>
-						<li><img id="2" src="img/bambooblindhalfroundvalance.jpg"></li>
-						<li><img id="3" src="img/basswood.jpg"></li>
-						<li><img id="4" src="img/basswoodblind.jpg"></li>
-						<li><img id="5" src="img/basswoodhalfroundvalance.jpg"></li>
-						<li><img id="1" src="img/bamboo150valance.jpg"></li>
-						<li><img id="1" src="img/bamboo150valance.jpg"></li>
-						<li><img id="1" src="img/bamboo150valance.jpg"></li>
-						<li><img id="1" src="img/bamboo150valance.jpg"></li>
-					</ul>
-				</div>
-			</section>
+			<a href="#" class="ui-btn ui-btn-inline ui-corner-all ui-icon-arrow-l ui-btn-icon-left" onclick="prev(); return false"></a>
+			<a href="#" class="ui-btn ui-btn-inline ui-corner-all ui-icon-arrow-r ui-btn-icon-right" onclick="next(); return false"></a>
 		  </div>
 
 
-		  <div data-role="footer" align="center">
-			 Blind Designs 2014 &copy; <href="http://www.thinktank.co.za">ThinkTank</href>
+		  <div data-role="footer">
+			<!--<h1>Blind Designs</h1>--><h1><img src="img/logo.png" height="50px"></h1>
 		  </div>
 		</div> 
-
+		<script src="js/jquery.js"></script>
+        <script src="js/modernizr.js"></script>
 	</body>
 </html>
