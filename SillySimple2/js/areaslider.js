@@ -5,7 +5,7 @@ $(document).ready(function(){
 	$("#main_area > img#1").fadeIn(600);
 });
 function next(){
-		count = $("#main_area >img").size();
+		count = $("#main_area >img").size() - 2;
 		sliderInt += 1;
 		if(sliderInt <= count){
 			$("#main_area >img").fadeOut(600);
