@@ -16,7 +16,8 @@
         PhoneGap Team
     </author>
 
-	<gap:plugin name="nl.x-services.plugins.camera" version="4.2.2" />
+	<gap:plugin name="org.apache.cordova.camera" version="0.2.9" />
+	<!--<gap:plugin name="nl.x-services.plugins.camera" version="4.2.2" />
     <!--
         If you do not want any permissions to be added to your app, add the
         following tag to your config.xml; you will still have the INTERNET
