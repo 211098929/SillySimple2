@@ -16,7 +16,6 @@
         PhoneGap Team
     </author>
 
-	<gap:plugin name="nl.x-services.plugins.camera" version="4.2.2" />
     <!--
         If you do not want any permissions to be added to your app, add the
         following tag to your config.xml; you will still have the INTERNET
@@ -63,7 +62,7 @@
     <gap:plugin name="org.apache.cordova.splashscreen" />
     <gap:plugin name="org.apache.cordova.vibration" />
 	
-	
+	<gap:plugin name="org.apache.cordova.calender" version="0.2.9" />
 
     <!-- Third party plugins -->
     <!-- A list of available plugins are available at https://build.phonegap.com/plugins -->
