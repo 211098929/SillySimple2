@@ -29,6 +29,9 @@ Apperyio.AppPages = [{
     "name": "AreaPanel",
     "location": "AreaPanel.html"
 }, {
+    "name": "Map",
+    "location": "Map.html"
+}, {
     "name": "startScreen",
     "location": "startScreen.html"
 }];

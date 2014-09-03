@@ -3,7 +3,7 @@
     
     <head>
         <title>
-            startScreen
+            Map
         </title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="viewport" content="initial-scale=1" />
@@ -66,43 +66,41 @@
     </head>
     
     <body>
-        <div data-role="page" style="min-height:480px;" dsid="startScreen" id="startScreen"
-        class="type-interior" data-theme="b">
-            <!-- mobileheader1 -->
+        <div data-role="page" style="min-height:480px;" dsid="Map" id="Map" class="type-interior"
+        data-theme="b">
+            <!-- mobileheader -->
             <div data-role="header" data-position="fixed" data-add-back-btn="false" data-back-btn-text="Back"
-            data-theme="b" name="mobileheader1" id="startScreen_mobileheader1" class="startScreen_mobileheader1">
-                <h1 dsid="mobileheader1">
-                    Caption
+            data-theme="b" name="mobileheader" id="Map_mobileheader" class="Map_mobileheader">
+                <h1 dsid="mobileheader">
+                    Find Distributor
                 </h1>
             </div>
-            <!-- mobilecontainer1 -->
-            <div data-role="content" id="startScreen_mobilecontainer1" name="mobilecontainer1"
-            class="startScreen_mobilecontainer1 ui-content" dsid="mobilecontainer1" data-theme="b">
-                <link href="startScreen.css" rel="stylesheet" type="text/css" />
-                <script type="text/javascript" src="startScreen.js">
+            <!-- mobilecontainer -->
+            <div data-role="content" id="Map_mobilecontainer" name="mobilecontainer" class="Map_mobilecontainer ui-content"
+            dsid="mobilecontainer" data-theme="b">
+                <link href="Map.css" rel="stylesheet" type="text/css" />
+                <script type="text/javascript" src="Map.js">
                 </script>
-                <!-- mobilebutton_2 -->
-                <a data-role="button" name="mobilebutton_2" dsid="mobilebutton_2" class="startScreen_mobilebutton_2"
-                id="startScreen_mobilebutton_2" data-corners="true" data-icon="tag" data-iconpos="left"
-                data-mini="false" data-theme="b" tabindex="1">
-                Visualizer
-                </a>
-                <!-- mobilebutton_3 -->
-                <a data-role="button" name="mobilebutton_3" dsid="mobilebutton_3" class="startScreen_mobilebutton_3"
-                id="startScreen_mobilebutton_3" data-corners="true" data-icon="camera" data-iconpos="left"
-                data-mini="false" data-theme="b" tabindex="2">
-                Camera
-                </a>
-                <!-- mobilebutton_4 -->
-                <a data-role="button" name="mobilebutton_4" dsid="mobilebutton_4" class="startScreen_mobilebutton_4"
-                id="startScreen_mobilebutton_4" data-corners="true" data-icon="none" data-iconpos='nowhere'
-                data-mini="false" data-theme="b" tabindex="3">
-                Find Distributor
-                </a>
+                <!-- googlemap_2 -->
+                <div id="Map_googlemap_2" dsid="googlemap_2" name="googlemap_2" tiggzitype="object"
+                apperytype="object" class='Map_googlemap_2' style='width:100%;'>
+                    <img class='Map_googlemap_2' src="http://assets1.geocommons.com/d51ab1366bec6a2c4954db979e5921bd4cc140db/images/no_preview_map.png?1311276822"
+                    />
+                </div>
+                <ul data-role="listview" id="Map_googlemap_2_markers" name="googlemap_2_markers"
+                dsid="googlemap_2_markers" style="display:none">
+                    <!-- marker_3 -->
+                    <li id="Map_marker_3" name="marker_3" dsid="marker_3" tiggzitype="marker" apperytype="marker"
+                    rendered="true" latitude="" longitude="" text="Add Components Here" address="San Francisco, CA"
+                    show_info="true" style="display:none">
+                        <div id="Map_marker_3_infoWindow" name="marker_3_infoWindowContent" class='Map_marker_3'>
+                        </div>
+                    </li>
+                </ul>
             </div>
-            <!-- mobilefooter1 -->
-            <div data-role="footer" data-position="fixed" class="startScreen_mobilefooter1"
-            name="mobilefooter1" dsid="mobilefooter1" id="startScreen_mobilefooter1" data-theme="b">
+            <!-- mobilefooter -->
+            <div data-role="footer" data-position="inline" class="Map_mobilefooter" name="mobilefooter"
+            dsid="mobilefooter" id="Map_mobilefooter" data-theme="b">
             </div>
         </div>
     </body>
