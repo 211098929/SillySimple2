@@ -1,4 +1,0 @@
-BlindDesigns
-============
-
-Blind visualiser app
