@@ -42,7 +42,12 @@ startScreen_js = function(runBeforeShow) {
     var n2id_buf = {
         'mobilebutton_2': 'startScreen_mobilebutton_2',
         'mobilebutton_3': 'startScreen_mobilebutton_3',
-        'mobilebutton_4': 'startScreen_mobilebutton_4'
+        'mobilebutton_18': 'startScreen_mobilebutton_18',
+        'mobilebutton_19': 'startScreen_mobilebutton_19',
+        'mobilebutton_4': 'startScreen_mobilebutton_4',
+        'mobilebutton_20': 'startScreen_mobilebutton_20',
+        'mobilebutton_21': 'startScreen_mobilebutton_21',
+        'mobilelink_22': 'startScreen_mobilelink_22'
     };
 
     if ("n2id" in window && window.n2id !== undefined) {
@@ -211,6 +216,7 @@ startScreen_js = function(runBeforeShow) {
                     return false;
                 },
             }, '#startScreen_mobilecontainer1 [name="mobilebutton_3"]');
+
             $(document).off("click", '#startScreen_mobilecontainer1 [name="mobilebutton_4"]').on({
                 click: function() {
                     if (!$(this).attr('disabled')) {

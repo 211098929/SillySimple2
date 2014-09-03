@@ -21,12 +21,54 @@
 .ui-btn.startScreen_mobilebutton_3 {
 	margin: 4px 5px 4px 5px;
 }
+/* mobilebutton_18 */
+#startScreen_mobilebutton_18 {
+
+}
+.ui-btn.startScreen_mobilebutton_18 {
+	margin: 4px 5px 4px 5px;
+}
+/* mobilebutton_19 */
+#startScreen_mobilebutton_19 {
+
+}
+.ui-btn.startScreen_mobilebutton_19 {
+	margin: 4px 5px 4px 5px;
+}
 /* mobilebutton_4 */
 #startScreen_mobilebutton_4 {
 
 }
 .ui-btn.startScreen_mobilebutton_4 {
 	margin: 4px 5px 4px 5px;
+}
+/* mobilebutton_20 */
+#startScreen_mobilebutton_20 {
+
+}
+.ui-btn.startScreen_mobilebutton_20 {
+	margin: 4px 5px 4px 5px;
+}
+/* mobilebutton_21 */
+#startScreen_mobilebutton_21 {
+
+}
+.ui-btn.startScreen_mobilebutton_21 {
+	margin: 4px 5px 4px 5px;
+}
+/* mobilelink_22 */
+.startScreen_mobilelink_22 {
+	margin: 30px 0px 4px 0px;
+	display: block;
+	vertical-align: middle;
+	padding: 2px;
+	cursor: pointer;
+}
+.startScreen_mobilelink_22_link_wrapper > .startScreen_mobilelink_22,
+.startScreen_mobilelink_22_link_wrapper > .startScreen_mobilelink_22:hover,
+.startScreen_mobilelink_22_link_wrapper > .startScreen_mobilelink_22:active,
+.startScreen_mobilelink_22_link_wrapper > .startScreen_mobilelink_22:visited {
+	text-decoration: none; font-weight: normal; font-style: italic; color: #181a1c; text-align: center; font-family: Georgia; font-size: 15px;
 }
 /* mobilefooter1 */
 .startScreen_mobilefooter1 {
