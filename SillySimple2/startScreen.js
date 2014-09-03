@@ -42,12 +42,24 @@ startScreen_js = function(runBeforeShow) {
     var n2id_buf = {
         'mobilebutton_2': 'startScreen_mobilebutton_2',
         'mobilebutton_3': 'startScreen_mobilebutton_3',
-        'mobilebutton_18': 'startScreen_mobilebutton_18',
         'mobilebutton_19': 'startScreen_mobilebutton_19',
         'mobilebutton_4': 'startScreen_mobilebutton_4',
-        'mobilebutton_20': 'startScreen_mobilebutton_20',
-        'mobilebutton_21': 'startScreen_mobilebutton_21',
-        'mobilelink_22': 'startScreen_mobilelink_22'
+        'mobilelink_22': 'startScreen_mobilelink_22',
+        'mobileimage_45': 'startScreen_mobileimage_45',
+        'mobileimage_46': 'startScreen_mobileimage_46',
+        'mobilegrid_24': 'startScreen_mobilegrid_24',
+        'mobilegridcell_25': 'startScreen_mobilegridcell_25',
+        'mobileimage_47': 'startScreen_mobileimage_47',
+        'mobileimage_48': 'startScreen_mobileimage_48',
+        'mobilegridcell_27': 'startScreen_mobilegridcell_27',
+        'mobilegridcell_29': 'startScreen_mobilegridcell_29',
+        'mobilegridcell_31': 'startScreen_mobilegridcell_31',
+        'mobilegridcell_33': 'startScreen_mobilegridcell_33',
+        'mobilegridcell_35': 'startScreen_mobilegridcell_35',
+        'mobilegridcell_37': 'startScreen_mobilegridcell_37',
+        'mobilegridcell_39': 'startScreen_mobilegridcell_39',
+        'mobilegridcell_41': 'startScreen_mobilegridcell_41',
+        'mobilegridcell_43': 'startScreen_mobilegridcell_43'
     };
 
     if ("n2id" in window && window.n2id !== undefined) {
