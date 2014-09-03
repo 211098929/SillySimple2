@@ -38,7 +38,10 @@ startScreen_js = function(runBeforeShow) {
     /* Object & array with components "name-to-id" mapping */
     var n2id_buf = {
         'mobilebutton_2': 'startScreen_mobilebutton_2',
-        'mobilebutton_3': 'startScreen_mobilebutton_3'
+        'mobilebutton_3': 'startScreen_mobilebutton_3',
+        'mobilebutton_4': 'startScreen_mobilebutton_4',
+        'googlemap_5': 'startScreen_googlemap_5',
+        'marker_6': 'startScreen_marker_6'
     };
 
     if ("n2id" in window && window.n2id !== undefined) {
@@ -148,6 +151,33 @@ startScreen_js = function(runBeforeShow) {
     // screen elements extra js
     var startScreen_elementsExtraJS = function() {
             // screen (startScreen) extra code
+
+            /* googlemap_5 */
+
+            $("[name = 'googlemap_5']").wrap("<div/>");
+            $("[name = 'googlemap_5']").parent().css("margin-left", $("[name = 'googlemap_5']").css("margin-left"));
+            $("[name = 'googlemap_5']").parent().css("margin-right", $("[name = 'googlemap_5']").css("margin-right"));
+            $("[name = 'googlemap_5']").css("margin-left", '0');
+            $("[name = 'googlemap_5']").css("margin-right", '0');
+
+            var googlemap_5_options = {
+                markerSourceName: "googlemap_5_markers",
+                latitude: "",
+                longitude: "",
+                address: "San Francisco, CA",
+                zoom: 10,
+                showLocationMarker: false
+            }
+
+            Apperyio.__registerComponent('googlemap_5', new Apperyio.ApperyMapComponent("googlemap_5", googlemap_5_options));
+            $("[name='googlemap_5_markers'] [apperytype='marker']").attr("reRender", "googlemap_5");
+            $("[name='googlemap_5']").closest("[data-role='page']").bind({
+                pagecontainershow: function() {
+                    if (Apperyio('googlemap_5') != undefined) {
+                        Apperyio('googlemap_5').refresh();
+                    }
+                }
+            });
 
         };
 

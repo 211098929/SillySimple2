@@ -1,6 +1,7 @@
 /*
  * Services
  */
+var GeolocationService = new Apperyio.GeolocationService({});
 var CameraService = new Apperyio.CameraService({});
 /*
  * Data models

@@ -21,6 +21,24 @@
 .ui-btn.startScreen_mobilebutton_3 {
 	margin: 4px 5px 4px 5px;
 }
+/* mobilebutton_4 */
+#startScreen_mobilebutton_4 {
+
+}
+.ui-btn.startScreen_mobilebutton_4 {
+	margin: 4px 5px 4px 5px;
+}
+/* googlemap_5 */
+.startScreen_googlemap_5 {
+	width: 320px; height: 200px;
+	margin: 4px 0px 4px 0px;
+}
+/* marker_6 */
+.startScreen_marker_6 {
+	text-shadow:none;
+	color:black;
+	font-family:Arial;
+}
 /* mobilefooter1 */
 .startScreen_mobilefooter1 {
 	min-height:38px;
