@@ -40,10 +40,8 @@ startScreen_js = function(runBeforeShow) {
 
     /* Object & array with components "name-to-id" mapping */
     var n2id_buf = {
-        'mobilebutton_2': 'startScreen_mobilebutton_2',
-        'mobilebutton_3': 'startScreen_mobilebutton_3',
-        'mobilebutton_19': 'startScreen_mobilebutton_19',
-        'mobilebutton_4': 'startScreen_mobilebutton_4',
+        'takeaphoto': 'startScreen_takeaphoto',
+        'photopreview': 'startScreen_photopreview',
         'mobilelink_22': 'startScreen_mobilelink_22'
     };
 
@@ -67,6 +65,54 @@ startScreen_js = function(runBeforeShow) {
      * Nonvisual components
      */
     var datasources = [];
+
+    camera_take = new Apperyio.DataSource(CameraService, {
+        'onBeforeSend': function(jqXHR) {
+
+        },
+        'onComplete': function(jqXHR, textStatus) {
+
+            Apperyio.refreshScreenFormElements("startScreen");
+        },
+        'onSuccess': function(data) {},
+        'onError': function(jqXHR, textStatus, errorThrown) {},
+        'responseMapping': [{
+            'PATH': ['imageDataBase64'],
+            'ID': 'photopreview',
+            'ATTR': 'src'
+        }],
+        'requestMapping': [{
+            'PATH': ['quality'],
+            'TYPE': 'STRING',
+            'ATTR': '80'
+        }, {
+            'PATH': ['destinationType'],
+            'TYPE': 'STRING',
+            'ATTR': 'Data URL'
+        }, {
+            'PATH': ['sourcetype'],
+            'TYPE': 'STRING',
+            'ATTR': 'Camera'
+        }, {
+            'PATH': ['allowedit'],
+            'TYPE': 'STRING',
+            'ATTR': 'true'
+        }, {
+            'PATH': ['encodingType'],
+            'TYPE': 'STRING',
+            'ATTR': 'JPEG'
+        }, {
+            'PATH': ['targetWidth'],
+            'TYPE': 'STRING',
+            'ATTR': '1024'
+        }, {
+            'PATH': ['targetHeight'],
+            'TYPE': 'STRING',
+            'ATTR': '768'
+        }]
+    });
+
+    datasources.push(camera_take);
 
     /*
      * Events and handlers
@@ -119,28 +165,19 @@ startScreen_js = function(runBeforeShow) {
                 event.stopPropagation();
             });
 
-            $(document).off("click", '#startScreen_mobilecontainer1 [name="mobilebutton_2"]').on({
+            $(document).off("click", '#startScreen_mobilecontainer1 [name="takeaphoto"]').on({
                 click: function() {
                     if (!$(this).attr('disabled')) {
-                        Apperyio.navigateTo('Camera', {
-                            transition: 'slide',
-                            reverse: false
-                        });
+                        try {
+                            camera_take.execute({})
+                        } catch (ex) {
+                            console.log(ex.name + '  ' + ex.message);
+                            hideSpinner();
+                        };
 
                     }
                 },
-            }, '#startScreen_mobilecontainer1 [name="mobilebutton_2"]');
-
-            $(document).off("click", '#startScreen_mobilecontainer1 [name="mobilebutton_4"]').on({
-                click: function() {
-                    if (!$(this).attr('disabled')) {
-                        setTimeout(function() {
-                            window.location = 'Map.html';
-                        }, 0);
-
-                    }
-                },
-            }, '#startScreen_mobilecontainer1 [name="mobilebutton_4"]');
+            }, '#startScreen_mobilecontainer1 [name="takeaphoto"]');
 
         };
 

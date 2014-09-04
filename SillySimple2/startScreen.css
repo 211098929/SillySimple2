@@ -7,33 +7,18 @@
 .ui-content.startScreen_mobilecontainer1 {
 	padding: 15px 15px 15px 15px;
 }
-/* mobilebutton_2 */
-#startScreen_mobilebutton_2 {
+/* takeaphoto */
+#startScreen_takeaphoto {
 
 }
-.ui-btn.startScreen_mobilebutton_2 {
+.ui-btn.startScreen_takeaphoto {
 	margin: 4px 5px 4px 5px;
 }
-/* mobilebutton_3 */
-#startScreen_mobilebutton_3 {
-
-}
-.ui-btn.startScreen_mobilebutton_3 {
-	margin: 4px 5px 4px 5px;
-}
-/* mobilebutton_19 */
-#startScreen_mobilebutton_19 {
-
-}
-.ui-btn.startScreen_mobilebutton_19 {
-	margin: 4px 5px 4px 5px;
-}
-/* mobilebutton_4 */
-#startScreen_mobilebutton_4 {
-
-}
-.ui-btn.startScreen_mobilebutton_4 {
-	margin: 4px 5px 4px 5px;
+/* photopreview */
+.startScreen_photopreview {
+	margin: 4px 0px 4px 0px;
+	width: 292px; height: 273px;
+	display: block;
 }
 /* mobilelink_22 */
 .startScreen_mobilelink_22 {
