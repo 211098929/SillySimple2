@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <title>
+            Tab1
+        </title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="initial-scale=1" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <link href="files/resources/lib/theme/jqm/jqm.css" rel="stylesheet" />
+        <link href="files/resources/lib/theme/flat-ui/flat-ui.css" rel="stylesheet" />
+        <link href="files/resources/lib/jquerymobile/1.4.2/jquery.mobile.structure-1.4.2.css"
+        rel="stylesheet" />
+        <script type="text/javascript" src="files/resources/lib/store/json2.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/jquery/jquery-1.9.1.js">
+        </script>
+        <script type="text/javascript">
+                    $(document).bind("mobileinit", function()
+            {
+                if (navigator.userAgent.toLowerCase().indexOf("android") != -1)
+                {
+                    $.mobile.defaultPageTransition = 'none';
+                    $.mobile.defaultDialogTransition = 'none';
+                }
+                if (navigator.userAgent.toLowerCase().indexOf("msie") != -1)
+                {
+                    $.mobile.allowCrossDomainPages = true;
+                    $.support.cors = true;
+                }
+            });
+        </script>
+        <script type="text/javascript" src="files/resources/lib/jquerymobile/1.4.2/jquery.mobile-1.4.2.js">
+        </script>
+        <script type="text/javascript" src="files/resources/js/mobilebase.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/event/customEventHandler.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/base/sha1.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/base/oauth.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/base/contexts.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/base/jsonpath.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/base/jquery.xml2json.min.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/base/appery.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/get_target_platform.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/cordova.js">
+        </script>
+        <link href="files/resources/css/mobilebase.css" rel="stylesheet" type="text/css"
+        />
+        <link type="text/css" rel="stylesheet" href="files/views/assets/css/CSS.css" />
+        <script type="text/javascript" src="files/views/assets/js/services/service.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/base/databaseUtils.js">
+        </script>
+    </head>
+    
+    <body>
+        <div data-role="page" style="min-height:480px;" dsid="Tab1" id="Tab1" class="type-interior"
+        data-theme="b">
+            <!-- mobileheader -->
+            <div data-role="header" data-position="fixed" data-add-back-btn="true" data-back-btn-text="Back"
+            data-theme="b" name="mobileheader" id="Tab1_mobileheader" class="Tab1_mobileheader">
+                <h1 dsid="mobileheader">
+                    Visualizer
+                </h1>
+                <!-- mobilenavbar_2 -->
+                <div data-role="navbar" id="Tab1_mobilenavbar_2" name="mobilenavbar_2" dsid="mobilenavbar_2"
+                class="Tab1_mobilenavbar_2" data-theme="b" style="position: relative;">
+                    <ul>
+                        <!-- mobilenavbaritem_3 -->
+                        <li>
+                            <a data-theme="b" data-icon="home" id="Tab1_mobilenavbaritem_3" dsid="mobilenavbaritem_3"
+                            name="mobilenavbaritem_3">
+                            Choose Area
+                            </a>
+                        </li>
+                        <!-- mobilenavbaritem_4 -->
+                        <li>
+                            <a data-theme="b" data-icon="camera" id="Tab1_mobilenavbaritem_4" dsid="mobilenavbaritem_4"
+                            name="mobilenavbaritem_4">
+                            Camera
+                            </a>
+                        </li>
+                        <!-- mobilenavbaritem_5 -->
+                        <li>
+                            <a data-theme="b" data-icon="bars" id="Tab1_mobilenavbaritem_5" dsid="mobilenavbaritem_5"
+                            name="mobilenavbaritem_5">
+                            View Blinds
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- mobilecontainer -->
+            <div data-role="content" id="Tab1_mobilecontainer" name="mobilecontainer" class="Tab1_mobilecontainer ui-content"
+            dsid="mobilecontainer" data-theme="b">
+                <link href="Tab1.css" rel="stylesheet" type="text/css" />
+                <script type="text/javascript" src="Tab1.js">
+                </script>
+                <!-- mobilebutton_7 -->
+                <a data-role="button" name="mobilebutton_7" dsid="mobilebutton_7" class="Tab1_mobilebutton_7"
+                id="Tab1_mobilebutton_7" data-corners="true" data-icon="forward" data-iconpos="left"
+                data-mini="false" data-theme="b" tabindex="1">
+                Select a Blind
+                </a>
+				
+			<!--Area Image-->
+			<style>
+				.area_image{
+					width:300px;
+					height:250px;
+					margin:30px auto;
+					overflow:hidden;
+				}
+				.main_area{
+					width:300px;;
+				}
+				.main_area img{
+					width:300px;
+					height:250px;
+					border:2px solid #99adeb;
+					background:#42517f;
+				}
+				.area_image img{
+					width:300px;
+					height:250px;
+					border:2px solid #99adeb;
+					background:#42517f;
+				}
+				.img{
+					width:300px;
+					height:250px;
+					border:2px solid #99adeb;
+					background:#42517f;
+				.ui-btn{
+					margin-top:0px;
+					margin-bottom:30px;
+				}
+				
+			</style>
+			<div id="area_image" class="area_image">
+				<div id="main_area" class="main_area">
+					<img id="1" src="files/resources/image/rooms/room1.jpg">
+					<img id="2" src="files/resources/image/rooms/room2.jpg">
+					<img id="3" src="files/resources/image/rooms/room3.jpg">
+					<img id="4" src="files/resources/image/rooms/room4.jpg">
+				</div>
+				<img id="44" src="files/resources/image/rooms/roomthree.jpg">
+				<img id="55" src="files/resources/image/rooms/anotherToEdit.jpg">
+			</div>
+			
+			<a href="#" class="ui-btn ui-btn-inline ui-corner-all ui-icon-arrow-l ui-btn-icon-left" onclick="prev(); return false"></a>
+			<a href="#" class="ui-btn ui-btn-inline ui-corner-all ui-icon-arrow-r ui-btn-icon-right" onclick="next(); return false"></a>
+			
+			<!--Area Image-->
+            </div>
+            <!-- mobilefooter -->
+            <div data-role="footer" data-position="fixed" class="Tab1_mobilefooter" name="mobilefooter"
+            dsid="mobilefooter" id="Tab1_mobilefooter" data-theme="b">
+            </div>
+            <!-- blindsPanel -->
+            <div data-role="panel" tabindex="-1" data-position="left" data-display="overlay"
+            id="Tab1_blindsPanel"  class="Tab1_blindsPanel" name="blindsPanel" dsid="blindsPanel"
+            data-theme="b">
+                <!-- mobilegrid_9 -->
+                <div class="Tab1_mobilegrid_9_wrapper" data-wrapper-for="mobilegrid_9">
+                    <table id="Tab1_mobilegrid_9" class="Tab1_mobilegrid_9" dsid="mobilegrid_9" name="mobilegrid_9"
+                    cellpadding=0 cellspacing=0>
+                        <col style="width:auto;" />
+                        <tr class="Tab1_mobilegrid_9_row_0">
+                            <!-- mobilegridcell_10 -->
+                            <td id="Tab1_mobilegridcell_10" name="mobilegridcell_10" class="Tab1_mobilegridcell_10"
+                            colspan=1 rowspan=1>
+                                <div class="cell-wrapper">
+                                    <!-- mobileimage_30 -->
+                                    <img class="Tab1_mobileimage_30" src="files/resources/image/Selected/blind1.jpg" id="Tab1_mobileimage_30"
+                                    dsid="mobileimage_30" name="mobileimage_30" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="Tab1_mobilegrid_9_row_1">
+                            <!-- mobilegridcell_12 -->
+                            <td id="Tab1_mobilegridcell_12" name="mobilegridcell_12" class="Tab1_mobilegridcell_12"
+                            colspan=1 rowspan=1>
+                                <div class="cell-wrapper">
+                                    <!-- mobileimage_29 -->
+                                    <img class="Tab1_mobileimage_29" src="files/resources/image/Selected/blind2.jpg" id="Tab1_mobileimage_29"
+                                    dsid="mobileimage_29" name="mobileimage_29" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="Tab1_mobilegrid_9_row_2">
+                            <!-- mobilegridcell_14 -->
+                            <td id="Tab1_mobilegridcell_14" name="mobilegridcell_14" class="Tab1_mobilegridcell_14"
+                            colspan=1 rowspan=1>
+                                <div class="cell-wrapper">
+                                    <!-- mobileimage_31 -->
+                                    <img class="Tab1_mobileimage_31" src="files/resources/image/Selected/blind3.jpg" id="Tab1_mobileimage_31"
+                                    dsid="mobileimage_31" name="mobileimage_31" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="Tab1_mobilegrid_9_row_3">
+                            <!-- mobilegridcell_15 -->
+                            <td id="Tab1_mobilegridcell_15" name="mobilegridcell_15" class="Tab1_mobilegridcell_15"
+                            colspan=1 rowspan=1>
+                                <div class="cell-wrapper">
+                                    <!-- mobileimage_32 -->
+                                    <img class="Tab1_mobileimage_32" src="files/resources/image/Selected/blind4.jpg" id="Tab1_mobileimage_32"
+                                    dsid="mobileimage_32" name="mobileimage_32" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="Tab1_mobilegrid_9_row_4">
+                            <!-- mobilegridcell_16 -->
+                            <td id="Tab1_mobilegridcell_16" name="mobilegridcell_16" class="Tab1_mobilegridcell_16"
+                            colspan=1 rowspan=1>
+                                <div class="cell-wrapper">
+                                    <!-- mobileimage_33 -->
+                                    <img class="Tab1_mobileimage_33" src="files/resources/image/Selected/blind5.jpg" id="Tab1_mobileimage_33"
+                                    dsid="mobileimage_33" name="mobileimage_33" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="Tab1_mobilegrid_9_row_5">
+                            <!-- mobilegridcell_17 -->
+                            <td id="Tab1_mobilegridcell_17" name="mobilegridcell_17" class="Tab1_mobilegridcell_17"
+                            colspan=1 rowspan=1>
+                                <div class="cell-wrapper">
+                                    <!-- mobileimage_34 -->
+                                    <img class="Tab1_mobileimage_34" src="files/resources/image/Selected/blind6.jpg" id="Tab1_mobileimage_34"
+                                    dsid="mobileimage_34" name="mobileimage_34" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="Tab1_mobilegrid_9_row_6">
+                            <!-- mobilegridcell_18 -->
+                            <td id="Tab1_mobilegridcell_18" name="mobilegridcell_18" class="Tab1_mobilegridcell_18"
+                            colspan=1 rowspan=1>
+                                <div class="cell-wrapper">
+                                    <!-- mobileimage_35 -->
+                                    <img class="Tab1_mobileimage_35" src="files/resources/image/Selected/blind7.jpg" id="Tab1_mobileimage_35"
+                                    dsid="mobileimage_35" name="mobileimage_35" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="Tab1_mobilegrid_9_row_7">
+                            <!-- mobilegridcell_19 -->
+                            <td id="Tab1_mobilegridcell_19" name="mobilegridcell_19" class="Tab1_mobilegridcell_19"
+                            colspan=1 rowspan=1>
+                                <div class="cell-wrapper">
+                                    <!-- mobileimage_36 -->
+                                    <img class="Tab1_mobileimage_36" src="files/resources/image/Selected/blind8.jpg" id="Tab1_mobileimage_36"
+                                    dsid="mobileimage_36" name="mobileimage_36" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="Tab1_mobilegrid_9_row_8">
+                            <!-- mobilegridcell_20 -->
+                            <td id="Tab1_mobilegridcell_20" name="mobilegridcell_20" class="Tab1_mobilegridcell_20"
+                            colspan=1 rowspan=1>
+                                <div class="cell-wrapper">
+                                    <!-- mobileimage_37 -->
+                                    <img class="Tab1_mobileimage_37" src="files/resources/image/Selected/blind9.jpg" id="Tab1_mobileimage_37"
+                                    dsid="mobileimage_37" name="mobileimage_37" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="Tab1_mobilegrid_9_row_9">
+                            <!-- mobilegridcell_21 -->
+                            <td id="Tab1_mobilegridcell_21" name="mobilegridcell_21" class="Tab1_mobilegridcell_21"
+                            colspan=1 rowspan=1>
+                                <div class="cell-wrapper">
+                                    <!-- mobileimage_38 -->
+                                    <img class="Tab1_mobileimage_38" src="files/resources/image/Selected/blind10.jpg" id="Tab1_mobileimage_38"
+                                    dsid="mobileimage_38" name="mobileimage_38" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="Tab1_mobilegrid_9_row_10">
+                            <!-- mobilegridcell_22 -->
+                            <td id="Tab1_mobilegridcell_22" name="mobilegridcell_22" class="Tab1_mobilegridcell_22"
+                            colspan=1 rowspan=1>
+                                <div class="cell-wrapper">
+                                    <!-- mobileimage_39 -->
+                                    <img class="Tab1_mobileimage_39" src="files/resources/image/Selected/blind11.jpg" id="Tab1_mobileimage_39"
+                                    dsid="mobileimage_39" name="mobileimage_39" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="Tab1_mobilegrid_9_row_11">
+                            <!-- mobilegridcell_23 -->
+                            <td id="Tab1_mobilegridcell_23" name="mobilegridcell_23" class="Tab1_mobilegridcell_23"
+                            colspan=1 rowspan=1>
+                                <div class="cell-wrapper">
+                                    <!-- mobileimage_40 -->
+                                    <img class="Tab1_mobileimage_40" src="files/resources/image/Selected/blind12.jpg" id="Tab1_mobileimage_40"
+                                    dsid="mobileimage_40" name="mobileimage_40" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="Tab1_mobilegrid_9_row_12">
+                            <!-- mobilegridcell_24 -->
+                            <td id="Tab1_mobilegridcell_24" name="mobilegridcell_24" class="Tab1_mobilegridcell_24"
+                            colspan=1 rowspan=1>
+                                <div class="cell-wrapper">
+                                    <!-- mobileimage_41 -->
+                                    <img class="Tab1_mobileimage_41" src="files/resources/image/Selected/blind13.jpg" id="Tab1_mobileimage_41"
+                                    dsid="mobileimage_41" name="mobileimage_41" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="Tab1_mobilegrid_9_row_13">
+                            <!-- mobilegridcell_25 -->
+                            <td id="Tab1_mobilegridcell_25" name="mobilegridcell_25" class="Tab1_mobilegridcell_25"
+                            colspan=1 rowspan=1>
+                                <div class="cell-wrapper">
+                                    <!-- mobileimage_42 -->
+                                    <img class="Tab1_mobileimage_42" src="files/resources/image/Selected/blind14.jpg" id="Tab1_mobileimage_42"
+                                    dsid="mobileimage_42" name="mobileimage_42" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="Tab1_mobilegrid_9_row_14">
+                            <!-- mobilegridcell_26 -->
+                            <td id="Tab1_mobilegridcell_26" name="mobilegridcell_26" class="Tab1_mobilegridcell_26"
+                            colspan=1 rowspan=1>
+                                <div class="cell-wrapper">
+                                    <!-- mobileimage_43 -->
+                                    <img class="Tab1_mobileimage_43" src="files/resources/image/Selected/blind15.jpg" id="Tab1_mobileimage_43"
+                                    dsid="mobileimage_43" name="mobileimage_43" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="Tab1_mobilegrid_9_row_15">
+                            <!-- mobilegridcell_27 -->
+                            <td id="Tab1_mobilegridcell_27" name="mobilegridcell_27" class="Tab1_mobilegridcell_27"
+                            colspan=1 rowspan=1>
+                                <div class="cell-wrapper">
+                                    <!-- mobileimage_44 -->
+                                    <img class="Tab1_mobileimage_44" src="files/resources/image/Selected/blind16.jpg" id="Tab1_mobileimage_44"
+                                    dsid="mobileimage_44" name="mobileimage_44" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="Tab1_mobilegrid_9_row_16">
+                            <!-- mobilegridcell_28 -->
+                            <td id="Tab1_mobilegridcell_28" name="mobilegridcell_28" class="Tab1_mobilegridcell_28"
+                            colspan=1 rowspan=1>
+                                <div class="cell-wrapper">
+                                    <!-- mobileimage_45 -->
+                                    <img class="Tab1_mobileimage_45" src="files/resources/image/Selected/blind17.jpg" id="Tab1_mobileimage_45"
+                                    dsid="mobileimage_45" name="mobileimage_45" />
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </body>
+
+</html>

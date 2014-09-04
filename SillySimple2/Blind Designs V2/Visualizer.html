@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <title>
+            Visualizer
+        </title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="initial-scale=1" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <link href="files/resources/lib/theme/jqm/jqm.css" rel="stylesheet" />
+        <link href="files/resources/lib/theme/flat-ui/flat-ui.css" rel="stylesheet" />
+        <link href="files/resources/lib/jquerymobile/1.4.2/jquery.mobile.structure-1.4.2.css"
+        rel="stylesheet" />
+        <script type="text/javascript" src="files/resources/lib/store/json2.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/jquery/jquery-1.9.1.js">
+        </script>
+        <script type="text/javascript">
+                    $(document).bind("mobileinit", function()
+            {
+                if (navigator.userAgent.toLowerCase().indexOf("android") != -1)
+                {
+                    $.mobile.defaultPageTransition = 'none';
+                    $.mobile.defaultDialogTransition = 'none';
+                }
+                if (navigator.userAgent.toLowerCase().indexOf("msie") != -1)
+                {
+                    $.mobile.allowCrossDomainPages = true;
+                    $.support.cors = true;
+                }
+            });
+        </script>
+        <script type="text/javascript" src="files/resources/lib/jquerymobile/1.4.2/jquery.mobile-1.4.2.js">
+        </script>
+        <script type="text/javascript" src="files/resources/js/mobilebase.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/event/customEventHandler.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/base/sha1.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/base/oauth.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/base/contexts.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/base/jsonpath.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/base/jquery.xml2json.min.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/base/appery.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/get_target_platform.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/cordova.js">
+        </script>
+        <link href="files/resources/css/mobilebase.css" rel="stylesheet" type="text/css"
+        />
+        <link type="text/css" rel="stylesheet" href="files/views/assets/css/CSS.css" />
+        <script type="text/javascript" src="files/views/assets/js/services/service.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/base/databaseUtils.js">
+        </script>
+    </head>
+    
+    <body>
+        <div data-role="page" style="min-height:480px;" dsid="Visualizer" id="Visualizer"
+        class="type-interior" data-theme="b">
+            <!-- mobileheader -->
+            <div data-role="header" data-position="fixed" data-add-back-btn="true" data-back-btn-text="Back"
+            data-theme="b" name="mobileheader" id="Visualizer_mobileheader" class="Visualizer_mobileheader">
+                <h1 dsid="mobileheader">
+                    Visualizer
+                </h1>
+                <!-- mobilenavbar_6 -->
+                <div data-role="navbar" id="Visualizer_mobilenavbar_6" name="mobilenavbar_6" dsid="mobilenavbar_6"
+                class="Visualizer_mobilenavbar_6" data-theme="b" style="position: relative;">
+                    <ul>
+                        <!-- mobilenavbaritem_7 -->
+                        <li>
+                            <a data-theme="b" class="ui-btn-active ui-state-persist" data-icon="home" id="Visualizer_mobilenavbaritem_7"
+                            dsid="mobilenavbaritem_7" name="mobilenavbaritem_7">
+                            Choose Area
+                            </a>
+                        </li>
+                        <!-- mobilenavbaritem_8 -->
+                        <li>
+                            <a data-theme="b" data-icon="camera" id="Visualizer_mobilenavbaritem_8" dsid="mobilenavbaritem_8"
+                            name="mobilenavbaritem_8">
+                            Camera
+                            </a>
+                        </li>
+                        <!-- mobilenavbaritem_9 -->
+                        <li>
+                            <a data-theme="b" data-icon="bars" id="Visualizer_mobilenavbaritem_9" dsid="mobilenavbaritem_9"
+                            name="mobilenavbaritem_9">
+                            View Blinds
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- mobilecontainer -->
+            <div data-role="content" id="Visualizer_mobilecontainer" name="mobilecontainer"
+            class="Visualizer_mobilecontainer ui-content" dsid="mobilecontainer" data-theme="b">
+                <link href="Visualizer.css" rel="stylesheet" type="text/css" />
+                <script type="text/javascript" src="Visualizer.js">
+                </script>
+            </div>
+            <!-- mobilefooter -->
+            <div data-role="footer" data-position="fixed" class="Visualizer_mobilefooter" name="mobilefooter"
+            dsid="mobilefooter" id="Visualizer_mobilefooter" data-theme="b">
+            </div>
+        </div>
+    </body>
+
+</html>

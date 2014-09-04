@@ -1,0 +1,8 @@
+.myPannel{
+height: auto;
+min-height: 0;
+position: fixed;
+top: 50px;
+bottom: 50px;
+overflow: hidden;
+}
