@@ -26,14 +26,14 @@ function setDetailContent(pageUrl) {
 }
 
 Apperyio.AppPages = [{
-    "name": "AreaPanel",
-    "location": "AreaPanel.html"
-}, {
     "name": "Map",
     "location": "Map.html"
 }, {
     "name": "startScreen",
     "location": "startScreen.html"
+}, {
+    "name": "Camera",
+    "location": "Camera.html"
 }];
 
 startScreen_js = function(runBeforeShow) {
@@ -44,22 +44,7 @@ startScreen_js = function(runBeforeShow) {
         'mobilebutton_3': 'startScreen_mobilebutton_3',
         'mobilebutton_19': 'startScreen_mobilebutton_19',
         'mobilebutton_4': 'startScreen_mobilebutton_4',
-        'mobilelink_22': 'startScreen_mobilelink_22',
-        'mobileimage_45': 'startScreen_mobileimage_45',
-        'mobileimage_46': 'startScreen_mobileimage_46',
-        'mobilegrid_24': 'startScreen_mobilegrid_24',
-        'mobilegridcell_25': 'startScreen_mobilegridcell_25',
-        'mobileimage_47': 'startScreen_mobileimage_47',
-        'mobileimage_48': 'startScreen_mobileimage_48',
-        'mobilegridcell_27': 'startScreen_mobilegridcell_27',
-        'mobilegridcell_29': 'startScreen_mobilegridcell_29',
-        'mobilegridcell_31': 'startScreen_mobilegridcell_31',
-        'mobilegridcell_33': 'startScreen_mobilegridcell_33',
-        'mobilegridcell_35': 'startScreen_mobilegridcell_35',
-        'mobilegridcell_37': 'startScreen_mobilegridcell_37',
-        'mobilegridcell_39': 'startScreen_mobilegridcell_39',
-        'mobilegridcell_41': 'startScreen_mobilegridcell_41',
-        'mobilegridcell_43': 'startScreen_mobilegridcell_43'
+        'mobilelink_22': 'startScreen_mobilelink_22'
     };
 
     if ("n2id" in window && window.n2id !== undefined) {
@@ -82,50 +67,6 @@ startScreen_js = function(runBeforeShow) {
      * Nonvisual components
      */
     var datasources = [];
-
-    mobilecamera2 = new Apperyio.DataSource(CameraService, {
-        'onBeforeSend': function(jqXHR) {
-
-        },
-        'onComplete': function(jqXHR, textStatus) {
-
-            Apperyio.refreshScreenFormElements("startScreen");
-        },
-        'onSuccess': function(data) {},
-        'onError': function(jqXHR, textStatus, errorThrown) {},
-        'responseMapping': [],
-        'requestMapping': [{
-            'PATH': ['quality'],
-            'TYPE': 'STRING',
-            'ATTR': '80'
-        }, {
-            'PATH': ['destinationType'],
-            'TYPE': 'STRING',
-            'ATTR': 'Data URL'
-        }, {
-            'PATH': ['sourcetype'],
-            'TYPE': 'STRING',
-            'ATTR': 'Camera'
-        }, {
-            'PATH': ['allowedit'],
-            'TYPE': 'STRING',
-            'ATTR': 'true'
-        }, {
-            'PATH': ['encodingType'],
-            'TYPE': 'STRING',
-            'ATTR': 'JPEG'
-        }, {
-            'PATH': ['targetWidth'],
-            'TYPE': 'STRING',
-            'ATTR': '1024'
-        }, {
-            'PATH': ['targetHeight'],
-            'TYPE': 'STRING',
-            'ATTR': '768'
-        }]
-    });
-
-    datasources.push(mobilecamera2);
 
     /*
      * Events and handlers
@@ -181,53 +122,13 @@ startScreen_js = function(runBeforeShow) {
             $(document).off("click", '#startScreen_mobilecontainer1 [name="mobilebutton_2"]').on({
                 click: function() {
                     if (!$(this).attr('disabled')) {
-                        Apperyio.navigateTo('AreaPanel', {
-                            transition: 'slide',
+                        Apperyio.navigateTo('Camera', {
                             reverse: false
                         });
 
                     }
                 },
             }, '#startScreen_mobilecontainer1 [name="mobilebutton_2"]');
-            $(document).off("click vclick select tap", '#startScreen_mobilecontainer1 [name="mobilebutton_3"]').on({
-                click: function() {
-                    if (!$(this).attr('disabled')) {
-                        try {
-                            mobilecamera2.execute({})
-                        } catch (ex) {
-                            console.log(ex.name + '  ' + ex.message);
-                            hideSpinner();
-                        };
-
-                    }
-                },
-                vclick: function() {
-                    try {
-                        mobilecamera2.execute({})
-                    } catch (ex) {
-                        console.log(ex.name + '  ' + ex.message);
-                        hideSpinner();
-                    };
-                },
-                select: function() {
-                    try {
-                        mobilecamera2.execute({})
-                    } catch (ex) {
-                        console.log(ex.name + '  ' + ex.message);
-                        hideSpinner();
-                    };
-                },
-                tap: function() {
-                    try {
-                        mobilecamera2.execute({})
-                    } catch (ex) {
-                        console.log(ex.name + '  ' + ex.message);
-                        hideSpinner();
-                    };
-                    event.stopPropagation();
-                    return false;
-                },
-            }, '#startScreen_mobilecontainer1 [name="mobilebutton_3"]');
 
             $(document).off("click", '#startScreen_mobilecontainer1 [name="mobilebutton_4"]').on({
                 click: function() {

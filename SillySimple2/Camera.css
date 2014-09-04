@@ -1,0 +1,26 @@
+
+/* Define default spinner */
+.ui-icon-loading {
+	background: url("files/resources/lib/jquerymobile/1.4.2/images/ajax-loader.gif") repeat scroll 0 0 / 46px 46px transparent!important;
+}
+/* mobilecontainer */
+.ui-content.Camera_mobilecontainer {
+	padding: 15px 15px 15px 15px;
+}
+/* takephotobutton */
+#Camera_takephotobutton {
+
+}
+.ui-btn.Camera_takephotobutton {
+	margin: 4px 5px 4px 5px;
+}
+/* photopreview */
+.Camera_photopreview {
+	margin: 4px 0px 4px 0px;
+	width: 294px; height: 294px;
+	display: block;
+}
+/* mobilefooter */
+.Camera_mobilefooter {
+	min-height:38px;
+}

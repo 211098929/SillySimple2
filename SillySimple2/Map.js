@@ -26,14 +26,14 @@ function setDetailContent(pageUrl) {
 }
 
 Apperyio.AppPages = [{
-    "name": "AreaPanel",
-    "location": "AreaPanel.html"
-}, {
     "name": "Map",
     "location": "Map.html"
 }, {
     "name": "startScreen",
     "location": "startScreen.html"
+}, {
+    "name": "Camera",
+    "location": "Camera.html"
 }];
 
 Map_js = function(runBeforeShow) {
