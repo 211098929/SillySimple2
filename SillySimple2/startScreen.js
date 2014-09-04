@@ -123,6 +123,7 @@ startScreen_js = function(runBeforeShow) {
                 click: function() {
                     if (!$(this).attr('disabled')) {
                         Apperyio.navigateTo('Camera', {
+                            transition: 'slide',
                             reverse: false
                         });
 
