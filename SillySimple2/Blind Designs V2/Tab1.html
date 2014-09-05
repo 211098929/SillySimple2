@@ -64,7 +64,7 @@
         </script>
     </head>
     
-    <body>
+    <body bgcolor="Black">
         <div data-role="page" style="min-height:480px;" dsid="Tab1" id="Tab1" class="type-interior"
         data-theme="b">
             <!-- mobileheader -->
@@ -117,34 +117,43 @@
 			<!--Area Image-->
 			<style>
 				.area_image{
-					width:300px;
-					height:250px;
+					width:500px;
+					height:320px;
 					margin:30px auto;
 					overflow:hidden;
 				}
 				.main_area{
-					width:300px;;
+					width:400px;;
 				}
 				.main_area img{
-					width:300px;
-					height:250px;
+					width:500px;
+					height:320px;
 					border:2px solid #99adeb;
 					background:#42517f;
 				}
 				.area_image img{
-					width:300px;
-					height:250px;
+					width:500px;
+					height:320px;
 					border:2px solid #99adeb;
 					background:#42517f;
 				}
 				.img{
-					width:300px;
-					height:250px;
+					width:500px;
+					height:320px;
 					border:2px solid #99adeb;
 					background:#42517f;
 				.ui-btn{
 					margin-top:0px;
 					margin-bottom:30px;
+				}
+				.wrapper {
+					text-align: center;
+					margin-left: 500px;
+				}
+
+				.button {
+					position: absolute:
+					top: 50%;
 				}
 				
 			</style>
@@ -159,8 +168,13 @@
 				<img id="55" src="files/resources/image/rooms/anotherToEdit.jpg">
 			</div>
 			
-			<a href="#" class="ui-btn ui-btn-inline ui-corner-all ui-icon-arrow-l ui-btn-icon-left" onclick="prev(); return false"></a>
-			<a href="#" class="ui-btn ui-btn-inline ui-corner-all ui-icon-arrow-r ui-btn-icon-right" onclick="next(); return false"></a>
+			<!-- Next and Previous Buttons-->
+			<div class="button">
+				<button type="button" width="48" height="48" onclick="next(); return false">Next</button>
+				<button type="button" width="48" height="48" onclick="prev(); return false">Previous</button>
+				
+			</div>
+			
 			
 			<!--Area Image-->
             </div>
