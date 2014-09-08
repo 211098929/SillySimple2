@@ -157,7 +157,37 @@
 				}
 				
 			</style>
-			<div id="area_image" class="area_image">
+			<!-- Properties of scrollable images of blinds-->
+			<style>
+				.images li{
+					list-style:none;
+					
+				}
+				.images{
+					
+				}
+				.gallery{
+					border: 0px solid black;
+					position: relative;
+					top: 99px;
+					width: 300px;
+					height: 400px;
+					z-index: 99;
+					overflow:auto;
+				}
+			</style>
+			
+			<!-- Scrollable images of blinds-->
+			<ul class="gallery" align="left">
+				<li><img style="border:10px solid black; " src="files/resources/image/Selected/blind1.jpg" width="225" height="151" alt="Photo of Milford Sound in New Zealand" /></li>
+				<li><img style="border:10px solid black; " src="files/resources/image/Selected/blind2.jpg" width="225" height="151" alt="Photo of Milford Sound in New Zealand" /></li>
+				<li><img style="border:10px solid black; " src="http://www.html.am/images/image-codes/milford_sound_t.jpg" width="225" height="151" alt="Photo of Milford Sound in New Zealand" /></li>
+				<li><img style="border:10px solid black; " src="http://www.html.am/images/image-codes/milford_sound_t.jpg" width="225" height="151" alt="Photo of Milford Sound in New Zealand" /></li>
+				<li><img style="border:10px solid black; " src="http://www.html.am/images/image-codes/milford_sound_t.jpg" width="225" height="151" alt="Photo of Milford Sound in New Zealand" /></li>
+				<li><img style="border:10px solid black; " src="http://www.html.am/images/image-codes/milford_sound_t.jpg" width="225" height="151" alt="Photo of Milford Sound in New Zealand" /></li>
+			</ul>
+			<!--Images for the area panel-->
+			<div id="area_image" class="area_image" align="right">
 				<div id="main_area" class="main_area">
 					<img id="1" src="files/resources/image/rooms/room1.jpg">
 					<img id="2" src="files/resources/image/rooms/room2.jpg">
@@ -174,11 +204,8 @@
 				<button type="button" width="48" height="48" onclick="prev(); return false">Previous</button>
 				
 			</div>
-			<ul>
-				<a><img style="border:10px solid black;" src="http://www.html.am/images/image-codes/milford_sound_t.jpg" width="225" height="151" alt="Photo of Milford Sound in New Zealand" /></a>
-				<a><img style="border:10px solid black;" src="http://www.html.am/images/image-codes/milford_sound_t.jpg" width="225" height="151" alt="Photo of Milford Sound in New Zealand" /></a>
-				<a><img style="border:10px solid black;" src="http://www.html.am/images/image-codes/milford_sound_t.jpg" width="225" height="151" alt="Photo of Milford Sound in New Zealand" /></a>
-			</ul>
+			
+			
 			<!-- Codes by HTML.am -->
 
 
