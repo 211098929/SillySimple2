@@ -194,6 +194,7 @@ Tab1_js = function(runBeforeShow) {
 							alert('Four');
 						}
 						
+						
                         Apperyio('blindsPanel').panel("close");
 
                     }
